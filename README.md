@@ -31,7 +31,7 @@ Clone the repo and install the complementary requirements:
 ```
 cd $HOME
 git clone --recursive git@github.com:dvlab-research/Robust_Semantic_Segmentation.git
-cd ddcat
+cd Robust_Semantic_Segmentation
 pip install -r requirements.txt
 ```
 
