@@ -108,7 +108,7 @@ tensorboard --logdir=exp/path_to_log
 ## Test
 
 We provide the script for evaluation, reporting the miou on both clean and adversarial samples
-(the adversarial samples are obtained with attack whose $$n=2$$, $$\epsilon=0.03 \times 255$$, $$\alpha$=0.01 \times 255$$)
+(the adversarial samples are obtained with attack whose $`n=2`$, $$\epsilon=0.03 \times 255$$, $$\alpha$=0.01 \times 255$$)
 
 ### Cityscapes
 - Evaluate the PSPNet trained with no defense on Cityscapes
