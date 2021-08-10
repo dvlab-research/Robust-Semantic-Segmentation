@@ -108,7 +108,7 @@ tensorboard --logdir=exp/path_to_log
 ## Test
 
 We provide the script for evaluation, reporting the miou on both clean and adversarial samples
-(the adversarial samples are obtained with attack whose `n=2`, `\epsilon=0.03 \times 255`, `\alpha$=0.01 \times 255`)
+(the adversarial samples are obtained with attack whose n=2, epsilon=0.03 x 255, alpha=0.01 x 255)
 
 ### Cityscapes
 - Evaluate the PSPNet trained with no defense on Cityscapes
@@ -169,31 +169,23 @@ We provide the script for evaluation, reporting the miou on both clean and adver
 You can download the pretrained models from https://drive.google.com/file/d/120xLY_pGZlm3tqaLxTLVp99e06muBjJC/view?usp=sharing
 
 ### Cityscapes with PSPNet
-The model trained with no defense: pretrain/cityscapes/pspnet/no_defense
-
-The model trained with SAT: pretrain/cityscapes/pspnet/sat
-
+The model trained with no defense: pretrain/cityscapes/pspnet/no_defense  
+The model trained with SAT: pretrain/cityscapes/pspnet/sat  
 The model trained with DDCAT: pretrain/cityscapes/pspnet/ddcat
 
 ### Cityscapes with DeepLabv3
-The model trained with no defense: pretrain/cityscapes/deeplabv3/no_defense
-
-The model trained with SAT: pretrain/cityscapes/deeplabv3/sat
-
+The model trained with no defense: pretrain/cityscapes/deeplabv3/no_defense  
+The model trained with SAT: pretrain/cityscapes/deeplabv3/sat  
 The model trained with DDCAT: pretrain/cityscapes/deeplabv3/ddcat
 
 ### VOC2012 with PSPNet
-The model trained with no defense: pretrain/voc2012/pspnet/no_defense
-
-The model trained with SAT: pretrain/voc2012/pspnet/sat
-
+The model trained with no defense: pretrain/voc2012/pspnet/no_defense  
+The model trained with SAT: pretrain/voc2012/pspnet/sat  
 The model trained with DDCAT: pretrain/voc2012/pspnet/ddcat
 
 ### VOC2012 with DeepLabv3
-The model trained with no defense: pretrain/voc2012/deeplabv3/no_defense
-
-The model trained with SAT: pretrain/voc2012/deeplabv3/sat
-
+The model trained with no defense: pretrain/voc2012/deeplabv3/no_defense  
+The model trained with SAT: pretrain/voc2012/deeplabv3/sat  
 The model trained with DDCAT: pretrain/voc2012/deeplabv3/ddcat
 
 
