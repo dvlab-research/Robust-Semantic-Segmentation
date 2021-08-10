@@ -1,0 +1,26 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda-10.0/bin/nvcc
+
+cflags = -DTORCH_EXTENSION_NAME=psamask_gpu -DTORCH_API_INCLUDE_EXTENSION_H -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/torch/csrc/api/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/TH -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/THC -isystem /usr/local/cuda-10.0/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/include/python3.6m -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++11
+cuda_flags = -DTORCH_EXTENSION_NAME=psamask_gpu -DTORCH_API_INCLUDE_EXTENSION_H -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/torch/csrc/api/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/TH -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/THC -isystem /usr/local/cuda-10.0/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/include/python3.6m -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --compiler-options '-fPIC' -std=c++11
+ldflags = -shared -L/usr/local/cuda-10.0/lib64 -lcudart
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  command = $nvcc $cuda_flags -c $in -o $out
+
+rule link
+  command = $cxx $in $ldflags -o $out
+
+build operator.o: compile /export/vcl-nfs2/shared/hengshu1/research/semseg-dev/lib/psa/src/gpu/operator.cpp
+build psamask_cuda.cuda.o: cuda_compile /export/vcl-nfs2/shared/hengshu1/research/semseg-dev/lib/psa/src/gpu/psamask_cuda.cu
+
+build psamask_gpu.so: link operator.o psamask_cuda.cuda.o
+
+default psamask_gpu.so
+

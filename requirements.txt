@@ -1,0 +1,7 @@
+torch==1.0.1.post2
+torchvision==0.2.1
+PyYAML==3.12
+numpy==1.14.3
+opencv-python==3.4.4.19
+Pillow==5.1.0
+argparse==1.1

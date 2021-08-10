@@ -1,0 +1,21 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -DTORCH_EXTENSION_NAME=psamask_cpu -DTORCH_API_INCLUDE_EXTENSION_H -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/torch/csrc/api/include -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/TH -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/lib/python3.6/site-packages/torch/lib/include/THC -isystem /export/vcl-nfs2/shared/hengshu1/anaconda3/include/python3.6m -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++11
+ldflags = -shared
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out
+  depfile = $out.d
+  deps = gcc
+
+rule link
+  command = $cxx $in $ldflags -o $out
+
+build operator.o: compile /export/vcl-nfs2/shared/hengshu1/research/semseg-dev/lib/psa/src/cpu/operator.cpp
+build psamask.o: compile /export/vcl-nfs2/shared/hengshu1/research/semseg-dev/lib/psa/src/cpu/psamask.cpp
+
+build psamask_cpu.so: link operator.o psamask.o
+
+default psamask_cpu.so
+
