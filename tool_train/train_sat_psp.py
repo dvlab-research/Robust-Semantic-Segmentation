@@ -265,7 +265,7 @@ def FGSM(input, target, model, criterion, optimizer, clip_min, clip_max, eps=0.0
     return adversarial_example
 
 
-def BIM(input, target, model, criterion, optimizer, eps=0.03):
+def BIM(input, target, model, criterion, optimizer, eps=0.03, k_number=3):
     model.eval()
     input_unnorm = input.clone().detach()
     input_unnorm[:, 0, :, :] = input_unnorm[:, 0, :, :] * std_origin[0] + mean_origin[0]
@@ -274,7 +274,6 @@ def BIM(input, target, model, criterion, optimizer, eps=0.03):
     clip_min = input_unnorm - eps
     clip_max = input_unnorm + eps
 
-    k_number = 3
     adversarial_example = input.clone().detach()
     adversarial_example.requires_grad = True
     for mm in range(k_number):
