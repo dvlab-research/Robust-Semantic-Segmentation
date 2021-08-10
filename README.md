@@ -194,10 +194,10 @@ The model trained with DDCAT: pretrain/voc2012/deeplabv3/ddcat
 If you find the project useful, please cite:
 
 ```
-@article{xu2021ddcat,
+@inproceedings{xu2021ddcat,
   title={Dynamic Divide-and-Conquer Adversarial Training for Robust Semantic Segmentation},
   author={Xiaogang Xu, Hengshuang Zhao and Jiaya Jia},
-  journal={ICCV},
+  booktitle={ICCV},
   year={2021}
 }
 ```
