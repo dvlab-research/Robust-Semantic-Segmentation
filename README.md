@@ -1,6 +1,6 @@
 # Dynamic Divide-and-Conquer Adversarial Training for Robust Semantic Segmentation
 
-This is a pytorch project for the paper [**Dynamic Divide-and-Conquer Adversarial Training for Robust Semantic Segmentation**] by Xiaogang Xu, Hengshuang Zhao and Jiaya Jia presented at **ICCV2021**.
+This is a pytorch project for the paper **Dynamic Divide-and-Conquer Adversarial Training for Robust Semantic Segmentation** by Xiaogang Xu, Hengshuang Zhao and Jiaya Jia presented at **ICCV2021**.
 For multiprocessing training, we use [apex](https://github.com/NVIDIA/apex), tested with pytorch 1.0.1.
 
 
@@ -44,7 +44,7 @@ The environment of our experiments is CUDA10.2 and TITAN V. And you should insta
 
 ## Train
 
-- Download related datasets and you should modify the relevant paths specified in folder ``config"
+- Download related datasets and you should modify the relevant paths specified in folder "config"
 - Download ImageNet pre-trained [models]((https://drive.google.com/open?id=15wx9vOM0euyizq-M1uINgN0_wjVRf9J3)) and put them under folder `initmodel` for weight initialization.
 
 ### Cityscapes
@@ -108,7 +108,7 @@ tensorboard --logdir=exp/path_to_log
 ## Test
 
 We provide the script for evaluation, reporting the miou on both clean and adversarial samples
-(the adversarial samples are obtained with attack whose $n$=2, $\epsilon$=0.03 * 255, $\alpha$=0.01 * 255$)
+(the adversarial samples are obtained with attack whose $$n=2$$, $$\epsilon=0.03 \times 255$$, $$\alpha$=0.01 \times 255$$)
 
 ### Cityscapes
 - Evaluate the PSPNet trained with no defense on Cityscapes
@@ -170,22 +170,30 @@ You can download the pretrained models from https://drive.google.com/file/d/120x
 
 ### Cityscapes with PSPNet
 The model trained with no defense: pretrain/cityscapes/pspnet/no_defense
+
 The model trained with SAT: pretrain/cityscapes/pspnet/sat
+
 The model trained with DDCAT: pretrain/cityscapes/pspnet/ddcat
 
 ### Cityscapes with DeepLabv3
 The model trained with no defense: pretrain/cityscapes/deeplabv3/no_defense
+
 The model trained with SAT: pretrain/cityscapes/deeplabv3/sat
+
 The model trained with DDCAT: pretrain/cityscapes/deeplabv3/ddcat
 
 ### VOC2012 with PSPNet
 The model trained with no defense: pretrain/voc2012/pspnet/no_defense
+
 The model trained with SAT: pretrain/voc2012/pspnet/sat
+
 The model trained with DDCAT: pretrain/voc2012/pspnet/ddcat
 
 ### VOC2012 with DeepLabv3
 The model trained with no defense: pretrain/voc2012/deeplabv3/no_defense
+
 The model trained with SAT: pretrain/voc2012/deeplabv3/sat
+
 The model trained with DDCAT: pretrain/voc2012/deeplabv3/ddcat
 
 
