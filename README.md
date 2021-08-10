@@ -1,8 +1,8 @@
 # Dynamic Divide-and-Conquer Adversarial Training for Robust Semantic Segmentation
 
 This is a pytorch project for the paper **Dynamic Divide-and-Conquer Adversarial Training for Robust Semantic Segmentation** by Xiaogang Xu, Hengshuang Zhao and Jiaya Jia presented at **ICCV2021**.
-For multiprocessing training, we use [apex](https://github.com/NVIDIA/apex), tested with pytorch 1.0.1.
 
+[paper link](https://jiaya.me/publication/), [arxiv](https://arxiv.org/pdf/2003.06555)
 
 ## Introduction
 Adversarial training is promising for improving the robustness of deep neural networks towards adversarial perturbations, especially on the classification task. The effect of this type of training on semantic segmentation, contrarily, just commences.
@@ -17,9 +17,8 @@ Extensive experiments with various segmentation models are conducted on PASCAL V
 <img src="./figure/example.png" width="900"/>
 
 
-[paper link](https://jiaya.me/publication/), [arxiv](https://arxiv.org/pdf/2003.06555)
-
 ## Project Setup
+For multiprocessing training, we use [apex](https://github.com/NVIDIA/apex), tested with pytorch 1.0.1.
 
 First install Python 3. We advise you to install Python 3 and PyTorch with Anaconda:
 
